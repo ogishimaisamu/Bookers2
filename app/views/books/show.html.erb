@@ -1,0 +1,30 @@
+<%= render'users/list',user:@user,book:@book %>
+
+<div class="col-md-9">
+  <h1>Book detail</h1>
+  <table>
+    <tr>
+      <th>画像</th>
+      <th>タイトル</th>
+      <th>Opinion</th>
+    </tr>
+    <tr>
+      <td><%= attachment_image_tag @user, :profile_image, :fill, 30, 30, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+
+      <td> <%= @book.title %> </td>
+      <td> <%= @book.body %> </td>
+
+    <% if @user == current_user %>
+      <td><%= link_to "Edit", edit_book_path %></td>
+      <td><%= link_to "Destroy", book_path,method: :delete %></td>
+    </tr>
+    <tr>
+      <% end %>
+     <td>
+        <%= link_to @user.name,user_path(@user) %>
+     </td>
+    </tr>
+  </table>
+</div>
+</div>
+</div>

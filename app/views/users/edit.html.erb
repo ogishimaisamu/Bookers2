@@ -1,0 +1,13 @@
+ <h1>プロフィール編集</h1>
+  <%= form_for(@user) do |f| %>
+        <div>Name <%= f.text_field:name %></div>
+        <div>Image  <div class="form-group has-icon">
+				    <div class="user-edit-image">
+				        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+				    </div>
+				    <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+                        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+        </div>
+        <div>Introduction <%= f.text_field:introduction %></div>
+    <%= f.submit "変更を保存", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+<% end %>
